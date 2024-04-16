@@ -1,0 +1,50 @@
+{% load static %}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kay Blog</title>
+    <style>
+        div {
+            margin: 15px 30px;
+            background-color: rgb(63, 141, 165);
+            border-radius: 10px;
+            border: 5px solid rgb(63, 141, 165);
+        }
+        h1 {
+            text-align: center;
+            font: 1em sans-serif bolder;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>KAY'S BLOG</h1>
+        </div>
+    </header>
+    <section>
+        {% for post in posts reversed %}
+        <div>
+            <div>
+                <a href="post/{{post.id}}">
+                    <h2>{{post.title}}</h2>
+                    <h5>{{post.time}}</h5>
+                    <p>{{post.detail|truncatewords:20}}</p>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    <footer>
+        <nav>info</nav>
+    </footer>
+</body>
+</html>
